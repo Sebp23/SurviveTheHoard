@@ -6,9 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public float verticalInput;
     public float horizontalInput;
-    public float speed = 10.0f;
     public float zRange;
     public float xRange;
+
+    [SerializeField]
+    private float playerSpeed = 10.0f;
+
     private CollisionTracker collisionTrackerScript;
 
     // Start is called before the first frame update
@@ -56,9 +59,9 @@ public class PlayerController : MonoBehaviour
             horizontalInput = Input.GetAxis("Horizontal");
 
             //move player up/down
-            transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
+            transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * playerSpeed);
             //move player left/right
-            transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+            transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * playerSpeed);
         }
 
     }
