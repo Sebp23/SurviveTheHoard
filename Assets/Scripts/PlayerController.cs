@@ -18,10 +18,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //get the z-axis boundary position from the PlayerZBoundary object
-        zRange = GameObject.Find("PlayerZBoundary").transform.position.z;
+        zRange = GameObject.Find("ZBoundary").transform.position.z;
 
         //get the x-axis boundary position from the PlayerXBoundary object
-        xRange = GameObject.Find("PlayerXBoundary").transform.position.x;
+        xRange = GameObject.Find("XBoundary").transform.position.x;
 
         //get the CollisionTracker script
         collisionTrackerScript = GameObject.Find("Player").GetComponent<CollisionTracker>();
