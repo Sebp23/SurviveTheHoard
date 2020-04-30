@@ -16,7 +16,7 @@ public class IncreaseSpeed : MonoBehaviour
         //get the CollisionTracker script
         collisionTrackerScript = GameObject.Find("Player").GetComponent<CollisionTracker>();
 
-        //execute the method SpeedIncrease() after 5 seconds, then repeat it every 5 seconds
+        //execute the method SpeedIncrease() after 10 seconds, then repeat it every 10 seconds
         InvokeRepeating("SpeedIncrease", speedIncreaseStartDelay, speedIncreaseInterval);
     }
 
@@ -31,7 +31,7 @@ public class IncreaseSpeed : MonoBehaviour
         if(collisionTrackerScript.gameOver == false)
         {
             //determine how much speed will be added to the total speed
-            addedSpeed = 2f;
+            //addedSpeed = 2f;
             //add 5 to the total speed
             speed += addedSpeed;
 
