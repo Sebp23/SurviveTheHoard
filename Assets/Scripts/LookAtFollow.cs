@@ -25,11 +25,7 @@ public class LookAtFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(collisionTrackerScript.gameOver == false)
-        {
-            transform.LookAt(enemyTarget.position);
-            transform.Translate(0.0f, 0.0f, increaseSpeedScript.speed * Time.deltaTime);
-        }
-        
+        transform.LookAt(enemyTarget.position);
+        transform.Translate(0.0f, 0.0f, increaseSpeedScript.speed * Time.deltaTime);
     }
 }
