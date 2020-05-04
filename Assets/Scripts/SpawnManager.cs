@@ -11,8 +11,10 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField]
     private GameObject[] spawnPositions;
-    
+
     private float startDelay = 2.5f;
+
+    [SerializeField]
     private float spawnDelay = 2f;
 
     private CollisionTracker collisionTrackerScript;
@@ -36,7 +38,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (collisionTrackerScript.gameOver == false)
         {
-            for(int i = 0; i < numberOfEnemies; i++)
+            for (int i = 0; i < numberOfEnemies; i++)
             {
                 //determine which obstacle prefab will spawn
                 int spawnIndex = Random.Range(0, spawnPositions.Length);
@@ -49,6 +51,7 @@ public class SpawnManager : MonoBehaviour
                 //spawn the obstacle
                 Instantiate(enemyObject, spawnPosition, enemyObject.transform.rotation);
             }
+
         }
     }
 }
