@@ -23,5 +23,16 @@ public class BulletCollisionTracker : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
+
+        else
+        {
+            StartCoroutine(DestroyBullet());
+        }
+    }
+
+    IEnumerator DestroyBullet()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
     }
 }
