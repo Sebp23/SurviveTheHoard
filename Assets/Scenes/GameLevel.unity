@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 561991603}
   - component: {fileID: 561991602}
   - component: {fileID: 561991601}
+  - component: {fileID: 561991608}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -321,6 +322,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &561991608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561991600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2d8dd4a4a17c04f901fdd614af9740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1743239273085305759, guid: 0b688e384b7235840af99c5fcfa7b5d1, type: 3}
+  mainCamera: {fileID: 963194227}
+  bulletsRemaining: 5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +689,7 @@ MonoBehaviour:
   - {fileID: 1000122896}
   - {fileID: 433815020}
   - {fileID: 1545126178}
+  spawnDelay: 2
 --- !u!114 &1598922257
 MonoBehaviour:
   m_ObjectHideFlags: 0
