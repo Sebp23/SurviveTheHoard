@@ -14,6 +14,7 @@ public class Shoot : MonoBehaviour
     private float bulletsRemaining;
 
     private Rigidbody playerRB;
+    private CollisionTracker collisionTrackerScript;
 
 
     // Start is called before the first frame update
@@ -24,6 +25,8 @@ public class Shoot : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
 
         playerRB = GameObject.Find("Player").GetComponent<Rigidbody>();
+
+        collisionTrackerScript = GameObject.Find("Player").GetComponent<CollisionTracker>();
     }
 
     // Update is called once per frame
@@ -40,50 +43,59 @@ public class Shoot : MonoBehaviour
         //Float initalized for the following if loop
         float rayLength;
 
-        //Following If Loop
-        //!!! Sets rayLength to however long the ray is from cameraRay to groundPlane !!!
-        if (groundPlane.Raycast(cameraRay, out rayLength))
+
+        if (collisionTrackerScript.gameOver == false)
         {
-            // Gets a vector3 pos where the RayLength crosses (gives the orientation for the player)
-            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-
-            //Debug to see casted ray 
-            Debug.DrawLine(cameraRay.origin, pointToLook, Color.red);
-
-            //Faces the point
-            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
-
-            if(bulletsRemaining > 0)
+            //Following If Loop
+            //!!! Sets rayLength to however long the ray is from cameraRay to groundPlane !!!
+            if (groundPlane.Raycast(cameraRay, out rayLength))
             {
-                if (Input.GetMouseButtonDown(0))
+                // Gets a vector3 pos where the RayLength crosses (gives the orientation for the player)
+                Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+
+                //Debug to see casted ray 
+                Debug.DrawLine(cameraRay.origin, pointToLook, Color.red);
+
+                //Faces the point
+                transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+
+                if (bulletsRemaining > 0)
                 {
 
-                    playerRB.isKinematic = true;
-
-                    GameObject bulletFired = Instantiate(bullet, transform.position, Quaternion.identity);
-
-                    bulletFired.transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
-
-                    bulletFired.GetComponent<Rigidbody>().AddForce(bulletFired.transform.forward * 100);
-
-                    bulletsRemaining--;
-
-                    playerRB.isKinematic = false;
+                    if (Input.GetMouseButtonDown(0))
+                    {
 
 
+                        playerRB.isKinematic = true;
+
+                        GameObject bulletFired = Instantiate(bullet, transform.position, Quaternion.identity);
+
+                        bulletFired.transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+
+                        bulletFired.GetComponent<Rigidbody>().AddForce(bulletFired.transform.forward * 100);
+
+                        bulletsRemaining--;
+
+                        Debug.Log($"Bullets Remaining: {bulletsRemaining}");
+
+                        playerRB.isKinematic = false;
+
+
+                    }
                 }
-            }
 
-            if(bulletsRemaining == 0)
-            {
-                if (Input.GetKeyDown(KeyCode.R))
+                if (bulletsRemaining == 0)
                 {
-                    StartCoroutine(Reload());
+
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        StartCoroutine(Reload());
+                    }
                 }
+
+
             }
         }
-
-        
     }
 
     IEnumerator Reload()
@@ -91,7 +103,7 @@ public class Shoot : MonoBehaviour
         Debug.Log("Reloading...");
         yield return new WaitForSeconds(3);
         bulletsRemaining += 5;
-        Debug.Log($"Reloaded! Capacity: {bulletsRemaining}");
+        Debug.Log($"Reloaded! Bullets Remaining: {bulletsRemaining}");
     }
 }
 
