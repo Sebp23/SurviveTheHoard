@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     private Camera mainCamera;
 
-    [SerializeField]
-    private float bulletsRemaining;
+    public float bulletsRemaining;
+    public bool reloading = false;
 
     private Rigidbody playerRB;
     private CollisionTracker collisionTrackerScript;
@@ -89,6 +90,7 @@ public class Shoot : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.R))
                     {
+                        reloading = true;
                         StartCoroutine(Reload());
                     }
                 }
@@ -100,10 +102,15 @@ public class Shoot : MonoBehaviour
 
     IEnumerator Reload()
     {
+        
         Debug.Log("Reloading...");
         yield return new WaitForSeconds(3);
-        bulletsRemaining += 5;
-        Debug.Log($"Reloaded! Bullets Remaining: {bulletsRemaining}");
+        if(bulletsRemaining == 0)
+        {
+            bulletsRemaining += 5;
+            reloading = false;
+            Debug.Log($"Reloaded! Bullets Remaining: {bulletsRemaining}");
+        }
     }
 }
 
