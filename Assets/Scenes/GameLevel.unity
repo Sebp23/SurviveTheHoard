@@ -1180,6 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5796dd651492fb34d9192be1a27a8047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
   scoreCount: {fileID: 2120654255}
 --- !u!1001 &610350969826810867
 PrefabInstance:
