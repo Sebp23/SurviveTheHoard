@@ -104,10 +104,10 @@ public class Shoot : MonoBehaviour
     {
         
         Debug.Log("Reloading...");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         if(bulletsRemaining == 0)
         {
-            bulletsRemaining += 5;
+            bulletsRemaining += 10;
             reloading = false;
             Debug.Log($"Reloaded! Bullets Remaining: {bulletsRemaining}");
         }

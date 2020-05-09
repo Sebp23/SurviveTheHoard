@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    private float timer = 0.0f;
+    public float timer = 0.0f;
     [SerializeField]
     private Text scoreCount;
+
     // Start is called before the first frame update
     void Start()
     {

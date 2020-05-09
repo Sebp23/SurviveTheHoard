@@ -7,7 +7,7 @@ public class IncreaseSpeed : MonoBehaviour
     public float speed = 3.0f;
     public float addedSpeed;
     private float speedIncreaseStartDelay = 10f;
-    private float speedIncreaseInterval = 10f;
+    private float speedIncreaseInterval = 6f;
 
     private CollisionTracker collisionTrackerScript;
     // Start is called before the first frame update

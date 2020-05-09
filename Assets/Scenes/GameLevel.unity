@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: 0
+  hasPowerup: 0
 --- !u!114 &561991603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +350,8 @@ MonoBehaviour:
   zRange: 0
   xRange: 0
   playerSpeed: 10
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
+  playerRenderer: {fileID: 561991605}
 --- !u!65 &561991604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -436,7 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1743239273085305759, guid: 0b688e384b7235840af99c5fcfa7b5d1, type: 3}
   mainCamera: {fileID: 963194227}
-  bulletsRemaining: 5
+  bulletsRemaining: 10
   reloading: 0
 --- !u!1 &705507993
 GameObject:
@@ -875,13 +878,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyObject: {fileID: 290856034434293308, guid: f7573f9fa421ca34996bf17262f4b0ca,
     type: 3}
+  powerupObject: {fileID: 3405415675831975018, guid: 8a82d96b36eff664e88e88500d10b93e,
+    type: 3}
   numberOfEnemies: 1
+  numberOfPowerups: 1
   spawnPositions:
   - {fileID: 2061928397}
   - {fileID: 1000122896}
   - {fileID: 433815020}
   - {fileID: 1545126178}
-  spawnDelay: 2
 --- !u!114 &1598922257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,7 +900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  addedSpeed: 0.5
+  addedSpeed: 0.2
 --- !u!1 &1639786965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,3 +1260,77 @@ PrefabInstance:
       objectReference: {fileID: 561991607}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7573f9fa421ca34996bf17262f4b0ca, type: 3}
+--- !u!1001 &3698605310006624023
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614425729981246693, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405415675831975018, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_Name
+      value: PowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405415675831975018, guid: 8a82d96b36eff664e88e88500d10b93e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a82d96b36eff664e88e88500d10b93e, type: 3}
