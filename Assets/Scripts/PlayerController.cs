@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float playerSpeed = 10.0f;
 
+    public Color playerColor;
+    public Renderer playerRenderer;
+
     private CollisionTracker collisionTrackerScript;
 
     // Start is called before the first frame update
@@ -22,6 +25,11 @@ public class PlayerController : MonoBehaviour
 
         //get the x-axis boundary position from the PlayerXBoundary object
         xRange = GameObject.Find("XBoundary").transform.position.x;
+
+        //get color of player object
+        playerColor = GameObject.Find("Player").GetComponent<Renderer>().material.color;
+
+        playerRenderer = GameObject.Find("Player").GetComponent<Renderer>();
 
         //get the CollisionTracker script
         collisionTrackerScript = GameObject.Find("Player").GetComponent<CollisionTracker>();

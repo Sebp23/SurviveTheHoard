@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BulletCollisionTracker : MonoBehaviour
 {
+    private Score scoreScript;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        scoreScript = GameObject.Find("Score").GetComponent<Score>();
     }
 
     // Update is called once per frame
@@ -21,6 +22,8 @@ public class BulletCollisionTracker : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            scoreScript.timer += 5;
+
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
