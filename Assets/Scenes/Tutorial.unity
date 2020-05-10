@@ -809,7 +809,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943171350}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -21.66, y: 0, z: 7.08}
+  m_LocalPosition: {x: -18.31, y: 0, z: 7.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 140638005}
@@ -823,16 +823,17 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943171350}
-  m_Text: "Use WASD to move, and your mouse to aim.\nYou'll start with 10 bullets,
-    and when you run out\npress \"R\" to reload.\nWhen you see a yellow object pop
-    up, \nmove over it to pick it up. \nThat's a powerup! "
+  m_Text: "Use WASD to move, and your mouse to aim.\nDon't let the red cubes touch
+    you.\nYou'll start with 10 bullets, and when you run out\npress \"R\" to reload.\nWhen
+    you see a yellow object pop up, \nmove over it to pick it up. \nThat's a powerup
+    that will let you \nknock enemies back!"
   m_OffsetZ: 0
   m_CharacterSize: 0.6
   m_LineSpacing: 1
   m_Anchor: 0
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 25
+  m_FontSize: 20
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
