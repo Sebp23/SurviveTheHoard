@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionTracker : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class CollisionTracker : MonoBehaviour
         {
             //set game over to true
             gameOver = true;
+            StartCoroutine(GameOverScene());
             Debug.Log("Game Over!");
         }
 
@@ -60,5 +62,13 @@ public class CollisionTracker : MonoBehaviour
         yield return new WaitForSeconds(7);
         playerControlScript.playerRenderer.material.color = playerControlScript.playerColor;
         hasPowerup = false;
+    }
+
+    IEnumerator GameOverScene()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("GameOver");
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("GameOver"));
+        Debug.Log("Scene Loaded!");
     }
 }
