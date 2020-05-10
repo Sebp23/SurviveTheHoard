@@ -68,7 +68,6 @@ public class CollisionTracker : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene("GameOver");
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("GameOver"));
         Debug.Log("Scene Loaded!");
     }
 }
