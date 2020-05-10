@@ -25,7 +25,7 @@ public class GameOverController : MonoBehaviour
     {
         if (isPlayAgain)
         {
-            //Load the main game scene if "Play" is clicked
+            //Load the main game scene if "Play Again" is clicked
             SceneManager.LoadScene("GameLevel");
             Debug.Log("Scene Loaded!");
         }

@@ -36,6 +36,7 @@ public class SpawnManager : MonoBehaviour
         //get the CollisionTracker script
         collisionTrackerScript = GameObject.Find("Player").GetComponent<CollisionTracker>();
 
+        //invoke the SpawnEnemies, SpawnPowerups, and IncreaseEnemySpawnNumber repeatedly with their respective repeat times.
         InvokeRepeating("SpawnEnemies", enemyStartDelay, enemySpawnDelay);
         InvokeRepeating("SpawnPowerups", powerupStartDelay, powerupSpawnDelay);
         InvokeRepeating("IncreaseEnemySpawnNumber", enemyNumberStartDelay, enemyNumberSpawnDelay);
@@ -49,16 +50,18 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnEnemies()
     {
+        //make sure the game is not over
         if (collisionTrackerScript.gameOver == false)
         {
             for (int i = 0; i < numberOfEnemies; i++)
             {
-                //determine which obstacle prefab will spawn
+                //determine the x, y, and z positions for the spawn of the enemy, using the spawnPositions array
                 int spawnIndex = Random.Range(0, spawnPositions.Length);
                 float spawnPosX = spawnPositions[spawnIndex].transform.position.x;
                 float spawnPosZ = spawnPositions[spawnIndex].transform.position.z;
                 float spawnPosY = spawnPositions[spawnIndex].transform.position.y;
 
+                //define spawn position
                 Vector3 spawnPosition = new Vector3(spawnPosX, spawnPosY, spawnPosZ);
 
                 //spawn the obstacle
@@ -70,18 +73,20 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnPowerups()
     {
+        //make sure game is not over
         if (collisionTrackerScript.gameOver == false)
         {
             for (int i = 0; i < numberOfPowerups; i++)
             {
-                //determine which obstacle prefab will spawn
+                //Determine the x, y, and z, positions for the spawn of powerup
                 float spawnPosX = Random.Range(-playerControlScript.xRange, playerControlScript.xRange);
                 float spawnPosY = GameObject.Find("Player").transform.position.y;
                 float spawnPosZ = Random.Range(-playerControlScript.zRange, playerControlScript.zRange);
 
+                //define spawn position
                 Vector3 spawnPosition = new Vector3(spawnPosX, spawnPosY, spawnPosZ);
 
-                //spawn the obstacle
+                //spawn the powerup
                 Instantiate(powerupObject, spawnPosition, powerupObject.transform.rotation);
             }
 
@@ -90,6 +95,7 @@ public class SpawnManager : MonoBehaviour
 
     private void IncreaseEnemySpawnNumber()
     {
+        //increase the amount of enemies to be spawned
         numberOfEnemies++;
     }
 }
