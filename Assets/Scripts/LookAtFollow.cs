@@ -15,9 +15,11 @@ public class LookAtFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //get necessary scripts
         collisionTrackerScript = GameObject.Find("Player").GetComponent<CollisionTracker>();
         increaseSpeedScript = GameObject.Find("SpawnManager").GetComponent<IncreaseSpeed>();
 
+        //get the target to follow
         enemyTarget = GameObject.Find("Player").transform;
 
     }
@@ -25,7 +27,9 @@ public class LookAtFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //look at the position of the player (enemyTarget)
         transform.LookAt(enemyTarget.position);
+        //move the object towards enemyTarget
         transform.Translate(0.0f, 0.0f, increaseSpeedScript.speed * Time.deltaTime);
     }
 }

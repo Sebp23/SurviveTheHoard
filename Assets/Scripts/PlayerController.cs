@@ -26,9 +26,10 @@ public class PlayerController : MonoBehaviour
         //get the x-axis boundary position from the PlayerXBoundary object
         xRange = GameObject.Find("XBoundary").transform.position.x;
 
-        //get color of player object
+        //get the original color of player object
         playerColor = GameObject.Find("Player").GetComponent<Renderer>().material.color;
 
+        //get the rendering component of player object, so we can change color with powerups
         playerRenderer = GameObject.Find("Player").GetComponent<Renderer>();
 
         //get the CollisionTracker script
