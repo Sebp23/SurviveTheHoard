@@ -28,21 +28,18 @@ public class StartMenuController : MonoBehaviour
         {
             //Load the main game scene if "Play" is clicked
             SceneManager.LoadScene("GameLevel");
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("GameLevel"));
             Debug.Log("Scene Loaded!");
         }
         if (isTutorial)
         {
             //Load the Tutorial scene if "How to Play" is clicked
             SceneManager.LoadScene("Tutorial");
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("Tutorial"));
             Debug.Log("Scene Loaded!");
         }
         if (isCredits)
         {
             //load the credits scene of "Credits" is clicked
             SceneManager.LoadScene("Credits");
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("Credits"));
             Debug.Log("Scene Loaded!");
         }
         if (isQuit)
