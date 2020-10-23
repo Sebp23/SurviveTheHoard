@@ -671,7 +671,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943171350}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2, y: 0, z: 1}
+  m_LocalPosition: {x: -5.66, y: 0, z: 0.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 140638005}
@@ -686,14 +686,17 @@ TextMesh:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943171350}
   m_Text: "Almost Everything ---- Sebastian Pedersen\n\nRaycast Help ---------- Chris
-    Reardon \n\nMusic -------------------- Loop & Music Free by Marching Dream"
+    Reardon \n\nMusic -------------------- Loop & Music Free by Marching Dream\n\nSound
+    Fx --------------- Post Apocalypse Guns Demo by Sound Earth Game Audio\n\t\t\t\t\t\t\t\t-
+    Free Sound Effects Pack by Olivier Girardot\n\t\t\t\t\t\t\t\t- Fantasy SFX for
+    Particle Distort Texture Effect Library by Moonflower Carnival\n"
   m_OffsetZ: 0
   m_CharacterSize: 0.6
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 20
+  m_FontSize: 17
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}

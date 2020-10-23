@@ -285,7 +285,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930230351}
-  m_Text: Survive the Hoard!
+  m_Text: Survive the Horde!
   m_OffsetZ: 0
   m_CharacterSize: 0.6
   m_LineSpacing: 1

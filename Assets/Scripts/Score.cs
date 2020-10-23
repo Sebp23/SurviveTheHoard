@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
     [SerializeField]
     private Text scoreCount;
 
-    public int score;
+    public static int score;
 
     private CollisionTracker collisionTrackerScript;
 
@@ -17,7 +17,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         //determines the position of the score on the HUD
-        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(3.1f, 0, -850f));
+        //transform.localPosition = Camera.main.ViewportToWorldPoint(new Vector3(3.1f, 0, -850f));
 
         collisionTrackerScript = GameObject.Find("Player").GetComponent<CollisionTracker>();
     }
@@ -25,6 +25,8 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //determines the position of the score on the HUD
+        //transform.localPosition = Camera.main.ViewportToWorldPoint(new Vector3(3.1f, 0, -850f));
         AddSecond();
     }
 

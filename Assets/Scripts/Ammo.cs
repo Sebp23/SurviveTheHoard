@@ -12,8 +12,6 @@ public class Ammo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //determines the position of the score on the HUD
-        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(4.1f, 0, -800f));
 
         shootScript = GameObject.Find("Player").GetComponent<Shoot>();
     }
@@ -21,23 +19,19 @@ public class Ammo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if player is not reloading, and has ammo
-        if(shootScript.reloading == false && shootScript.bulletsRemaining > 0)
-        {
-            //print amount of ammo player has remaining
-            ammoCount.text = ($"Ammo: {shootScript.bulletsRemaining.ToString()}");
-        }
         //if the player is not reloading and has no more ammo
-        if(shootScript.reloading == false && shootScript.bulletsRemaining == 0)
+        if (shootScript.reloading == false && shootScript.bulletsRemaining == 0)
         {
+            ammoCount.color = Color.yellow;
             //tell the player they need to reload
             ammoCount.text = ("Press 'R' to reload...");
         }
         //if player is currently reloading
         if (shootScript.reloading)
         {
+            ammoCount.color = Color.green;
             //print "Reloading..." to inform player that they are reloading
-            ammoCount.text = ("Reloading...");
+            ammoCount.text = (" ");
         }
     }
 }

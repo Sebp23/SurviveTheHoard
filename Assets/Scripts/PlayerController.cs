@@ -9,13 +9,13 @@ public class PlayerController : MonoBehaviour
     public float zRange;
     public float xRange;
 
-    [SerializeField]
-    private float playerSpeed = 10.0f;
+    public static float playerSpeed = 10.0f;
 
     public Color playerColor;
     public Renderer playerRenderer;
 
     private CollisionTracker collisionTrackerScript;
+    private Animator playerAnimation;
 
     // Start is called before the first frame update
     void Start()
@@ -26,14 +26,17 @@ public class PlayerController : MonoBehaviour
         //get the x-axis boundary position from the PlayerXBoundary object
         xRange = GameObject.Find("XBoundary").transform.position.x;
 
+        //get the CollisionTracker script
+        collisionTrackerScript = GameObject.Find("Player").GetComponent<CollisionTracker>();
+
+        //get the animator for the player
+        playerAnimation = GetComponent<Animator>();
+
         //get the original color of player object
         playerColor = GameObject.Find("Player").GetComponent<Renderer>().material.color;
 
         //get the rendering component of player object, so we can change color with powerups
         playerRenderer = GameObject.Find("Player").GetComponent<Renderer>();
-
-        //get the CollisionTracker script
-        collisionTrackerScript = GameObject.Find("Player").GetComponent<CollisionTracker>();
     }
 
     // Update is called once per frame
@@ -71,6 +74,16 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * playerSpeed, Space.World);
             //move player left/right
             transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * playerSpeed, Space.World);
+
+            if (horizontalInput >= 0 || horizontalInput <= 0 || verticalInput >= 0 || verticalInput <= 0)
+            {
+                playerAnimation.SetBool("isMoving", true);
+            }
+            if (horizontalInput == 0 && verticalInput == 0)
+            {
+                playerAnimation.SetBool("isMoving", false);
+            }
+
         }
 
     }
